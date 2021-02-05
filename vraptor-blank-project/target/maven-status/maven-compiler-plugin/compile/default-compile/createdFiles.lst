@@ -1,0 +1,8 @@
+br\com\caelum\vraptor\model\Endereco.class
+br\com\caelum\vraptor\model\Departamento.class
+br\com\caelum\vraptor\model\Empregado.class
+br\com\caelum\vraptor\controller\EmpregadoController.class
+br\com\caelum\vraptor\dao\TelefoneDao.class
+br\com\caelum\vraptor\model\Telefone.class
+br\com\caelum\vraptor\dao\EmpregadoDao.class
+br\com\caelum\vraptor\model\Projeto.class

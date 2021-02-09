@@ -6,14 +6,18 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.dao.DepartamentoDao;
 import br.com.caelum.vraptor.dao.EmpregadoDao;
 import br.com.caelum.vraptor.model.Empregado;
 
 @Controller
 public class EmpregadoController{
 
-	@Inject
+	@Inject 
 	private EmpregadoDao empregadoDao;
+	
+	@Inject
+	private DepartamentoDao departamentoDao;
 	
 	private Result result;
 	
@@ -29,6 +33,7 @@ public class EmpregadoController{
 	
 	@Path("/")
 	public void inicio() {
+		result.include("departamentos", departamentoDao);
 	}
 	
 	@Post

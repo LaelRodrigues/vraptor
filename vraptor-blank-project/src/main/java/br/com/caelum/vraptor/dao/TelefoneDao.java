@@ -19,7 +19,7 @@ public class TelefoneDao {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Telefone> listarEmpregados(){
+	public List<Telefone> listarTelefones(){
         return em.createQuery("select t from Telefone t").getResultList();
 
 	}

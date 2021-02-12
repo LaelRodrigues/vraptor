@@ -10,7 +10,7 @@
 	<h2> Cadastro de Empregado</h2>
 		<form action="${linkTo[EmpregadoController].add}" method="post">
 		   Matrícula:
-		   <input type="text" name="empregado.matricula" value="${empregado.matricula}"/>
+		   <input type="text" name="empregado.matricula" "/>
 		   Nome:
 		   <input type="text" name="empregado.nomeEmpregado" value="${empregado.nomeEmpregado}"/>
 		   Salario:
@@ -24,9 +24,23 @@
            Estado:
            <input type="text" name="empregado.endereco.estado" value="${empregado.endereco.estado}"/>
            Cidade:
-           <input type="text" name="empregado.endereco.cidade" value="${empregado.endereco.cstado}"/>
-           <br><br>           
-           <button>Adicionar</button>
+           <input type="text" name="empregado.endereco.cidade" value="${empregado.endereco.cidade}"/> 
+           <h3> Departamento</h3>
+           Selecione o departamento:          
+           <select name="empregado.departamento.id">
+           		<c:forEach items="${departamentos}" var="departamentos">
+           			<option value="${departamentos.id}">${departamentos.nomeDepartamento}</option>
+           		</c:forEach>		
+           </select> 
+           <%-- <h3> Projetos</h3>
+           Selecione os projetos: 
+           <select multiple="multiple"> 
+           		<c:forEach items="${projetos}" var="projetos">
+           			<option value="${projetos.id}"> ${projetos.nomeProjeto} </option>
+           		</c:forEach>
+           </select> --%> 
+           <br><br>
+           <button  type="submit">Adicionar</button>
        </form>
 </body>
 </html>

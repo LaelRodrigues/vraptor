@@ -2,25 +2,23 @@ package br.com.caelum.vraptor.dao;
 
 import java.util.List;
 
-import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 import br.com.caelum.vraptor.model.Empregado;
 
-@Stateless
 public class EmpregadoDao {
     
-    @PersistenceContext
+    @Inject
 	private EntityManager em;
 	
 	public void adicionar(Empregado empregado) {
 		em.persist(empregado);
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked") 
 	public List<Empregado> listarEmpregados(){
-        return em.createQuery("select e from Empregado e").getResultList();
-
+		return em.createQuery("select e from Empregado e").getResultList();
+  
 	}
-}
+ }

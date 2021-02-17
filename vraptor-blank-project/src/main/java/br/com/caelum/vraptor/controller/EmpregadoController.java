@@ -37,17 +37,26 @@ public class EmpregadoController{
 	
 	@Path("/")
 	public void inicio() {
-		result.include("departamentos", departamentoDao.listarDepartamentos());
-		result.include("projetos", projetoDao.listarProjetos());
 		 
 	}
 	
+	public void form(){
+		result.include("departamentos", departamentoDao.listarDepartamentos());
+		result.include("projetos", projetoDao.listarProjetos());
+	}
+	
+	
+	@Path("/empregado/cadastro")
 	@Post
 	public void add(Empregado empregado) {
-		System.out.println(empregado.getDepartamento().getId());
 		empregadoDao.adicionar(empregado);
-		System.out.println("ESTOU AQUI");
 		result.redirectTo(this).inicio();
-	}	
+	}
+	
+	public void lista() {
+		result.include("empregados", empregadoDao.listarEmpregados());
+		result.include("projetos", projetoDao.listarProjetos());
+
+	}
 	
 }

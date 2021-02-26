@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Cadastro</title>
+<title>Cadastro Empregado</title>
 </head>
 <body>
 	<h2> Cadastro de Empregado</h2>
@@ -16,11 +16,11 @@
 		   <input type="text" name="empregado.nomeEmpregado" value="${empregado.nomeEmpregado}"/>
 		   Salario:
 		   <input type="text" name="empregado.salario" value="${empregado.salario}"/>
-		   <h3> Telefone</h3>
+		   <%-- <h3> Telefone</h3>
            DDD:
            <input type="text" name="empregado.telefone.ddd" value="${empregado.telefone.ddd}"/>
            Número:
-           <input type="text" name="empregado.telefone.numero" value="${empregado.telefone.numero}"/>
+           <input type="text" name="empregado.telefone.numero" value="${empregado.telefone.numero}"/> --%>
            <h3> Endereço</h3>
            Estado:
            <input type="text" name="empregado.endereco.estado" value="${empregado.endereco.estado}"/>
@@ -29,15 +29,15 @@
            <h3> Departamento</h3>
            Selecione o departamento:          
            <select name="empregado.departamento.id">
-           		<c:forEach items="${departamentos}" var="departamentos">
-           			<option value="${departamentos.id}">${departamentos.nomeDepartamento}</option>
+           		<c:forEach items="${departamentos}" var="departamento">
+           			<option value="${departamento.id}">${departamento.nomeDepartamento}</option>
            		</c:forEach>		
            </select> 
            <h3> Projetos</h3>
            Selecione os projetos: 
            <select name="empregado.projetos.id" multiple="multiple"> 
-           		<c:forEach items="${projetos}" var="projetos">
-           			<option value="${projetos.id}"> ${projetos.nomeProjeto} </option>
+           		<c:forEach items="${projetos}" var="projeto">
+           			<option value="${projeto.id}"> ${projeto.nomeProjeto} </option>
            		</c:forEach>
            </select> 
            <br><br>

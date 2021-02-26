@@ -8,8 +8,10 @@
 </head>
 <body>
 	<h1> Gerenciamento de Empregados</h1>
-	<a href="${linkTo[EmpregadoController].form()}"><button> Cadastar Empregados </button></a>
+	<a href="${linkTo[EmpregadoController].form()}"><button> Cadastar Empregado </button></a>
 	<br><br>
 	<a href="${linkTo[EmpregadoController].lista()}"><button> Listar Empregados </button></a>
+	<br><br>
+	<a href="${linkTo[TelefoneController].form()}"><button> Cadastrar Telefone(s) do Empregado </button></a>
 </body>
 </html>

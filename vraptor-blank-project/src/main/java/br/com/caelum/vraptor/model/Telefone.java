@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Telefone implements Serializable {
@@ -20,14 +21,19 @@ public class Telefone implements Serializable {
 	
 	private String numero;
 	
+	@ManyToOne
+	private Empregado empregado;
+	
 	public Telefone() {}
 
-	public Telefone(int id, String ddd, String numero) {
+	public Telefone(String ddd, String numero, Empregado empregado) {
 		super();
-		this.id = id;
 		this.ddd = ddd;
 		this.numero = numero;
+		this.empregado = empregado;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -52,4 +58,14 @@ public class Telefone implements Serializable {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
+
+	public Empregado getEmpregado() {
+		return empregado;
+	}
+
+	public void setEmpregado(Empregado empregado) {
+		this.empregado = empregado;
+	}
+	
+	
 }

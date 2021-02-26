@@ -10,22 +10,29 @@
 </head>
 	<h1> Listagem dos empregados</h1>
 		<c:forEach items="${empregados}" var="empregado">
+			---------------------------------------------
 			<h3>Dados Gerais</h3>        
             Matricula: ${empregado.matricula}<br>
             Nome: ${empregado.nomeEmpregado}<br>
             Salario: ${empregado.salario}<br>
-            <h3>Telefone</h3>
-            DDD: ${empregado.telefone.ddd}<br>
-            Número: ${empregado.telefone.numero}<br>
+            <h3>Telefone(s)</h3>
+            <c:forEach items="${telefones}" var="telefone">
+            	<c:if test="${empregado.id == telefone.empregado.id}">
+            		(${telefone.ddd}) -
+            		${telefone.numero} <br><br>
+            	</c:if> 
+            </c:forEach>
             <h3>Endereço</h3>
             Cidade: ${empregado.endereco.cidade}<br>
             Estado: ${empregado.endereco.estado}<br>
             <h3>Departamento</h3>
             Departamento: ${empregado.departamento.nomeDepartamento}<br>    
-            <%-- <h3>Projetos</h3>
-            <c:forEach items="${projetos}" var="projeto">
-            	${empregado.projetos.nomeProjeto}
-            </c:forEach> --%>
+            <h3>Projeto(s)</h3>
+            <c:forEach items="${empregado.projetos}" var="projeto">
+            		${projeto.nomeProjeto}<br>
+            </c:forEach>
+            <br>
+            --------------------------------------------- <br>
      	</c:forEach>
 	<%-- <table class="table table-stripped table-hover table-bordered">
 		<thead>

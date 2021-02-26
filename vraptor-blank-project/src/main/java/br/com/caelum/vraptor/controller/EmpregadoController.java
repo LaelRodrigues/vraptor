@@ -9,6 +9,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.dao.DepartamentoDao;
 import br.com.caelum.vraptor.dao.EmpregadoDao;
 import br.com.caelum.vraptor.dao.ProjetoDao;
+import br.com.caelum.vraptor.dao.TelefoneDao;
 import br.com.caelum.vraptor.model.Empregado;
 
 @Controller
@@ -22,6 +23,9 @@ public class EmpregadoController{
 	
 	@Inject 
 	private ProjetoDao projetoDao;
+	
+	@Inject 
+	private TelefoneDao telefoneDao;
 	
 	private Result result;
 	
@@ -46,17 +50,16 @@ public class EmpregadoController{
 	}
 	
 	
-	@Path("/empregado/cadastro")
 	@Post
 	public void add(Empregado empregado) {
 		empregadoDao.adicionar(empregado);
-		result.redirectTo(this).inicio();
+		result.redirectTo(this).form();
 	}
 	
 	public void lista() {
 		result.include("empregados", empregadoDao.listarEmpregados());
-		result.include("projetos", projetoDao.listarProjetos());
-
+		result.include("telefones", telefoneDao.listarTelefones());
+		//result.include("projetos_empregado", projetoDao.listarProjetosEmpregado());
 	}
 	
 }

@@ -19,5 +19,6 @@ public class EmpregadoDao {
 	@SuppressWarnings("unchecked") 
 	public List<Empregado> listarEmpregados(){
 		return em.createQuery("select e from Empregado e").getResultList();
+		
 	}
  }

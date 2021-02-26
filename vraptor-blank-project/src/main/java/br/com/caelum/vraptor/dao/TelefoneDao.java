@@ -2,17 +2,15 @@ package br.com.caelum.vraptor.dao;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import br.com.caelum.vraptor.model.Telefone;
 
 public class TelefoneDao {
 	
-	private final EntityManager em;
-	
-	public TelefoneDao(EntityManager em) {
-		this.em = em;
-	}
+	@Inject
+	private EntityManager em;
 	
 	public void adicionar(Telefone telefone) {
 		em.persist(telefone);

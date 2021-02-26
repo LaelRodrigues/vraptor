@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -27,8 +28,8 @@ public class Empregado implements Serializable {
 	
 	private long salario;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	private Telefone telefone;
+	@OneToMany(cascade = CascadeType.ALL)
+	private Set<Telefone> telefones;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
@@ -36,19 +37,19 @@ public class Empregado implements Serializable {
 	@ManyToMany
 	private Set<Projeto> projetos;
 	
-	@ManyToOne
+	@ManyToOne												
 	private Departamento departamento;
 	
 	public Empregado() {}
 
-	public Empregado(int id, int matricula, String nomeEmpregado, long salario, Telefone telefone, Endereco endereco,
+	public Empregado(int id, int matricula, String nomeEmpregado, long salario, Set<Telefone> telefones, Endereco endereco,
 			Set<Projeto> projetos, Departamento departamento) {
 		super();
 		this.id = id;
 		this.matricula = matricula;
 		this.nomeEmpregado = nomeEmpregado;
 		this.salario = salario;
-		this.telefone = telefone;
+		this.telefones = (Set<Telefone>) telefones;
 		this.endereco = endereco;
 		this.projetos = projetos;
 		this.departamento = departamento;
@@ -87,11 +88,11 @@ public class Empregado implements Serializable {
 	}
 
 	public Telefone getTelefone() {
-		return telefone;
+		return (Telefone) telefones;
 	}
 
-	public void setTelefone(Telefone telefone) {
-		this.telefone = telefone;
+	public void setTelefone(Set<Telefone> telefones) {
+		this.telefones = (Set<Telefone>) telefones;
 	}
 
 	public Endereco getEndereco() {
